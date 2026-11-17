@@ -3,7 +3,6 @@ import '../styles/global.css';
 import { projects } from '../data/projects';
 import HeroSystem from '../components/HeroSystem.astro';
 import ProductLab from '../components/ProductLab.astro';
-import BuildLoop from '../components/BuildLoop.astro';
 import ExperienceProof from '../components/ExperienceProof.astro';
 import PathDiagram from '../components/PathDiagram.astro';
 
@@ -44,7 +43,6 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
       <nav aria-label="Main navigation">
         <a href="#experience">Experience</a>
         <a href="#work">Projects</a>
-        <a href="#method">Method</a>
         <a href="#about">About</a>
       </nav>
       <a class="header-link" href={linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
@@ -53,10 +51,10 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
     <main id="main">
       <section class="hero shell" id="top">
         <div class="hero-copy" data-reveal>
-          <div class="hero-kicker"><span class="live-dot" aria-hidden="true"></span><span>Feroz Mohammed</span><i>/</i><span>Product Manager & Builder</span></div>
+          <div class="hero-kicker"><span class="live-dot" aria-hidden="true"></span><span>Feroz Mohammed</span></div>
           <h1>I turn product questions into <em>working products.</em></h1>
           <p class="hero-role">AI Product Manager · I design, prototype, and ship.</p>
-          <p class="hero-intro">At Amura Health, I’m an Associate Product Manager. Earlier at Careflick, I helped grow Nova from 0 to 15 enterprise customers. FimoLabs is my independent product lab.</p>
+          <p class="hero-intro">Associate Product Manager at Amura Health. Previously helped grow Nova to 15 enterprise customers at Careflick.</p>
           <div class="hero-actions">
             <a class="primary-action" href="#experience">View product impact <span aria-hidden="true">↓</span></a>
             <a class="quiet-action" href="#work">Explore FimoLabs <span aria-hidden="true">↓</span></a>
@@ -68,9 +66,8 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
       </section>
 
       <section class="experience-section shell" id="experience">
-        <div class="section-intro" data-reveal>
+        <div class="section-intro section-intro-compact" data-reveal>
           <div><p class="section-number">01 / Employment</p><h2>Product work,<br /><em>with evidence.</em></h2></div>
-          <p>Associate Product Manager at Amura Health. Previously, I helped grow Nova from 0 to 15 enterprise customers.</p>
         </div>
         <ExperienceProof />
         <div class="experience-rail" data-reveal aria-label="Earlier employment">
@@ -80,32 +77,21 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
 
       <section class="work-section shell" id="work">
         <div class="section-intro" data-reveal>
-          <div><p class="section-number">02 / Independent product lab</p><h2>Built independently.<br /><em>Inside FimoLabs.</em></h2></div>
-          <p>Five products and prototypes I’m building independently—some live, others taking shape.</p>
+          <div><p class="section-number">02 / FimoLabs</p><h2>Independent products,<br /><em>built to learn.</em></h2></div>
+          <p>Five products—from live launches to early explorations.</p>
         </div>
         <ProductLab projects={projects} />
-      </section>
-
-      <section class="method-section" id="method">
-        <div class="shell">
-          <div class="method-heading" data-reveal>
-            <div><p class="section-number">03 / How I build</p><h2>The work is a <em>loop</em>, not a handoff.</h2></div>
-            <p>Problem, experience, code, evidence. I stay close to all four.</p>
-          </div>
-          <BuildLoop />
-        </div>
       </section>
 
       <section class="about-section" id="about">
         <div class="shell">
           <div class="about-heading" data-reveal>
-            <p class="section-number">04 / About</p>
+            <p class="section-number">03 / About</p>
             <h2>Curiosity changed the <em>shape</em> of my work.</h2>
             <img class="about-portrait" data-portrait-slot src={portrait} alt="Portrait of Feroz Mohammed" width="1254" height="1254" loading="lazy" decoding="async" />
           </div>
           <PathDiagram />
           <div class="about-copy" data-reveal>
-            <p>Mechanical engineering led me to code, then product.</p>
             <p>I enjoy taking an idea far enough that someone can try it—and tell me where it falls short.</p>
           </div>
         </div>
@@ -122,11 +108,8 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
     </main>
 
     <footer class="site-footer shell">
-      <a class="logo" href="#top" aria-label="PM Feroz, AI Product Manager, home">
-        <span class="logo-copy"><strong>PM Feroz</strong><small>AI Product Manager</small></span>
-      </a>
-      <p>FimoLabs is my personal lab.</p>
       <p>© {new Date().getFullYear()} Feroz Mohammed</p>
+      <a href={linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
     </footer>
 
     <script>
@@ -209,7 +192,7 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
           void demo.offsetWidth;
           if (reducedMotion.matches) {
             demo.classList.add('is-complete');
-            if (status) status.textContent = 'Illustrative trace complete. Measured results are still pending.';
+            if (status) status.textContent = 'Trace complete. Measured results are still pending.';
             return;
           }
           run.disabled = true;
@@ -219,7 +202,7 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
             demo.classList.remove('is-routing');
             demo.classList.add('is-complete');
             run.disabled = false;
-            if (status) status.textContent = 'Illustrative trace complete. Measured results are still pending.';
+            if (status) status.textContent = 'Trace complete. Measured results are still pending.';
           }, 1700);
         });
       });
@@ -244,7 +227,7 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
         void automationDemo.offsetWidth;
         if (reducedMotion.matches) {
           automationDemo.classList.add('is-complete');
-          automationStatus.textContent = 'Illustrative flow complete.';
+          automationStatus.textContent = 'Demo complete.';
           return;
         }
         automationButton.disabled = true;
@@ -255,7 +238,7 @@ const description = 'Feroz Mohammed is an Associate Product Manager at Amura Hea
         window.setTimeout(() => {
           automationDemo.classList.remove('is-running');
           automationDemo.classList.add('is-complete');
-          automationStatus.textContent = 'Illustrative flow complete.';
+          automationStatus.textContent = 'Demo complete.';
           automationButton.disabled = false;
         }, 2250);
       });

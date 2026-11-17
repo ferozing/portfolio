@@ -8,8 +8,8 @@ const [oyesun, router, checkin, twin, automation] = projects;
 
 <div class="lab-console" data-project-lab>
   <div class="lab-console-bar">
-    <div><span class="console-light is-live"></span><strong>FimoLabs · Personal lab</strong></div>
-    <span>Independent projects</span>
+    <div><span class="console-light is-live"></span><strong>Product index</strong></div>
+    <span>5 builds</span>
   </div>
 
   <div class="lab-tabs" role="tablist" aria-label="FimoLabs projects">
@@ -51,11 +51,10 @@ const [oyesun, router, checkin, twin, automation] = projects;
         </figure>
       </div>
       <div class="panel-notes">
-        <div class="panel-eyebrow"><span>{oyesun.category}</span><span class="status status-live"><i></i>{oyesun.status}</span></div>
+        <div class="panel-eyebrow"><span>{oyesun.category}</span></div>
         <h3>{oyesun.name}<span>.</span></h3>
         <p class="panel-question">“{oyesun.question}”</p>
         <p>{oyesun.description}</p>
-        <div class="panel-tags"><span>Voice</span><span>Companion</span><span>Live</span></div>
         <a class="panel-action" href={oyesun.href}>{oyesun.action} <span aria-hidden="true">↗</span></a>
       </div>
     </article>
@@ -64,7 +63,7 @@ const [oyesun, router, checkin, twin, automation] = projects;
       <div class="panel-visual router-scene" data-eval-demo aria-label="Interactive illustrative evaluation of a fictional complaint route">
         <div class="eval-topbar">
           <div class="route-demo-label"><span>Local routing eval</span><small>Illustrative sample</small></div>
-          <span class="eval-runtime"><i aria-hidden="true"></i>Illustrative local trace</span>
+          <span class="eval-runtime"><i aria-hidden="true"></i>Local trace</span>
         </div>
         <div class="eval-workbench">
           <article class="eval-card eval-case">
@@ -95,12 +94,10 @@ const [oyesun, router, checkin, twin, automation] = projects;
         </div>
       </div>
       <div class="panel-notes">
-        <div class="panel-eyebrow"><span>{router.category}</span><span class="status">{router.status}</span></div>
+        <div class="panel-eyebrow"><span>{router.category}</span></div>
         <h3>{router.name}</h3>
         <p class="panel-question">“{router.question}”</p>
         <p>{router.description}</p>
-        <div class="panel-tags"><span>Local model</span><span>Routing</span><span>Evals</span></div>
-        <span class="panel-action is-muted">Eval workbench in progress</span>
       </div>
     </article>
 
@@ -144,18 +141,17 @@ const [oyesun, router, checkin, twin, automation] = projects;
         </div>
       </div>
       <div class="panel-notes">
-        <div class="panel-eyebrow"><span>{checkin.category}</span><span class="status">{checkin.status}</span></div>
+        <div class="panel-eyebrow"><span>{checkin.category}</span></div>
         <h3>{checkin.name}</h3>
         <p class="panel-question">“{checkin.question}”</p>
         <p>{checkin.description}</p>
-        <div class="panel-tags"><span>Daily call</span><span>Voice AI</span><span>Family update</span></div>
         <a class="panel-action" href={checkin.href}>{checkin.action} <span aria-hidden="true">↗</span></a>
       </div>
     </article>
 
     <article class="project-panel panel-twin" id={`panel-${twin.id}`} role="tabpanel" aria-labelledby={`tab-${twin.id}`} data-project-panel={twin.id} hidden>
       <div class="panel-visual twin-scene" data-twin-visual data-level="2" aria-label="Interactive simulated digital-twin scenario">
-        <div class="simulation-label"><span>Simulated / illustrative</span><small data-scenario-label>Scenario 2</small></div>
+        <div class="simulation-label"><span>Simulated scenario</span><small data-scenario-label>Scenario 2</small></div>
         <svg class="twin-map" viewBox="0 0 620 330" aria-hidden="true">
           <path class="axis" d="M54 274H570M72 292V40" />
           <path class="contour contour-one" d="M108 242 C126 95 276 52 448 98 C568 131 548 230 416 258 C272 290 134 282 108 242Z" />
@@ -173,12 +169,10 @@ const [oyesun, router, checkin, twin, automation] = projects;
         </div>
       </div>
       <div class="panel-notes">
-        <div class="panel-eyebrow"><span>{twin.category}</span><span class="status">{twin.status}</span></div>
+        <div class="panel-eyebrow"><span>{twin.category}</span></div>
         <h3>{twin.name}</h3>
         <p class="panel-question">“{twin.question}”</p>
         <p>{twin.description}</p>
-        <div class="panel-tags"><span>Simulation</span><span>Scenarios</span><span>Concept</span></div>
-        <span class="panel-action is-muted">Using simulated data only</span>
       </div>
     </article>
 
@@ -194,16 +188,14 @@ const [oyesun, router, checkin, twin, automation] = projects;
         <div class="bot-console">
           <div><span class="bot-spark">✦</span><strong>Automation Bot</strong><small data-automation-status aria-live="polite">Ready to demonstrate.</small></div>
           <ol aria-hidden="true"><li>Open</li><li>Fill</li><li>Confirm</li></ol>
-          <button type="button" data-automation-run>Run illustrative task <span>→</span></button>
+          <button type="button" data-automation-run>Run task <span>→</span></button>
         </div>
       </div>
       <div class="panel-notes">
-        <div class="panel-eyebrow"><span>{automation.category}</span><span class="status">{automation.status}</span></div>
+        <div class="panel-eyebrow"><span>{automation.category}</span></div>
         <h3>{automation.name}</h3>
         <p class="panel-question">“{automation.question}”</p>
         <p>{automation.description}</p>
-        <div class="panel-tags"><span>Plan</span><span>Act</span><span>Confirm</span></div>
-        <span class="panel-action is-muted">Public walkthrough coming later</span>
       </div>
     </article>
   </div>
