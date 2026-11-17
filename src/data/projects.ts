@@ -37,7 +37,7 @@ export const projects: Project[] = [
     number: '02',
     name: 'AI Support Router',
     category: 'Local AI · Evals',
-    question: 'Can a local model route complaints—and prove when it is wrong?',
+    question: 'Can a local model route complaints and prove when it is wrong?',
     description: 'A local model routes fictional delivery complaints. I’m building evals to expose wrong queues and measure improvements.',
     status: 'In progress'
   },
@@ -46,8 +46,8 @@ export const projects: Project[] = [
     number: '03',
     name: 'Check In',
     category: 'Voice AI · Family',
-    question: 'Can a daily check-in make the call home better?',
-    description: 'A daily voice check-in for parents that sends families concise WhatsApp context before they call home.',
+    question: 'Can a daily AI call improve the next family conversation?',
+    description: 'A short daily voice call for parents that sends families concise WhatsApp context before they call home.',
     status: 'In progress',
     href: 'https://checkin.fimolabs.com',
     action: 'Open Check In',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     name: 'AI Automation Bot',
     category: 'AI · Interaction',
     question: 'What if an assistant could do the work while you watch?',
-    description: 'I’m designing a floating assistant to sit on top of an app and carry out tasks while you watch. The long-term goal is to make it work across different apps.',
+    description: 'I’m designing a floating assistant to sit on top of an app and carry out tasks while you watch. The long term goal is to make it work across different apps.',
     status: 'Exploring'
   }
 ];

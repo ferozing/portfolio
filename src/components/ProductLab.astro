@@ -102,14 +102,14 @@ const [oyesun, router, checkin, twin, automation] = projects;
     </article>
 
     <article class="project-panel panel-checkin" id={`panel-${checkin.id}`} role="tabpanel" aria-labelledby={`tab-${checkin.id}`} data-project-panel={checkin.id} hidden>
-      <div class="panel-visual checkin-scene" aria-label="Illustrative service blueprint of a daily parent check-in becoming family context">
+      <div class="panel-visual checkin-scene" aria-label="Illustrative service blueprint of a daily parent call becoming family context">
         <div class="handoff-topbar"><span>Daily care loop</span><small>Illustrative product flow</small></div>
         <div class="handoff-blueprint">
           <article class="handoff-stage stage-parent">
             <div class="handoff-actor"><span>01 / Parent</span><small>Any phone</small></div>
             <div class="handoff-ui call-ui">
               <b aria-hidden="true">☎</b>
-              <div><strong>Daily voice check-in</strong><small>Short, friendly call</small></div>
+              <div><strong>Daily voice call</strong><small>Short, friendly call</small></div>
               <span class="handoff-wave" aria-hidden="true">{Array.from({ length: 7 }).map(() => <i></i>)}</span>
             </div>
           </article>
@@ -133,7 +133,7 @@ const [oyesun, router, checkin, twin, automation] = projects;
           </article>
         </div>
         <div class="handoff-footer">
-          <div class="handoff-principle"><span>Product intent</span><strong>Support the next human call—not replace it.</strong></div>
+          <div class="handoff-principle"><span>Product intent</span><strong>Support the next human call, do not replace it.</strong></div>
           <figure class="handoff-proof">
             <img src={checkin.screenshot?.src} alt={checkin.screenshot?.alt} loading="lazy" />
             <figcaption>Public product page</figcaption>
@@ -150,7 +150,7 @@ const [oyesun, router, checkin, twin, automation] = projects;
     </article>
 
     <article class="project-panel panel-twin" id={`panel-${twin.id}`} role="tabpanel" aria-labelledby={`tab-${twin.id}`} data-project-panel={twin.id} hidden>
-      <div class="panel-visual twin-scene" data-twin-visual data-level="2" aria-label="Interactive simulated digital-twin scenario">
+      <div class="panel-visual twin-scene" data-twin-visual data-level="2" aria-label="Interactive simulated digital twin scenario">
         <div class="simulation-label"><span>Simulated scenario</span><small data-scenario-label>Scenario 2</small></div>
         <svg class="twin-map" viewBox="0 0 620 330" aria-hidden="true">
           <path class="axis" d="M54 274H570M72 292V40" />
