@@ -1,0 +1,47 @@
+---
+const customerDots = Array.from({ length: 15 });
+---
+
+<div class="employment-stack">
+  <article class="current-role-card" data-reveal>
+    <span class="role-sequence">01 / Current role</span>
+    <div><small>Associate Product Manager</small><h3>Amura Health</h3></div>
+    <span class="current-role-chip"><i aria-hidden="true"></i>Current</span>
+  </article>
+
+  <div class="nova-dashboard" data-reveal>
+    <div class="nova-dashboard-head">
+      <div><small>02 / Previous role</small><span>Careflick</span><b>Founding team · Nova</b></div>
+      <div class="role-rail" aria-label="Founder’s Office to Product Manager to sole product manager on Nova">
+        <span>Founder’s Office</span><i aria-hidden="true">→</i><span>Product Manager</span><i aria-hidden="true">→</i><span>Sole PM</span>
+      </div>
+    </div>
+
+    <div class="nova-proof-grid">
+      <div class="customer-proof">
+        <div class="proof-title"><span>Enterprise customers</span><small>Growth result</small></div>
+        <div class="customer-count"><strong>0</strong><i>→</i><strong>15</strong></div>
+        <div class="customer-dots" aria-label="Fifteen enterprise customers">
+          {customerDots.map((_, index) => <i style={`--dot:${index};`}></i>)}
+        </div>
+      </div>
+
+      <div class="market-proof">
+        <div class="proof-title"><span>Nova went live in</span><small>Three markets</small></div>
+        <div class="market-route" aria-label="India, Saudi Arabia, and the United States">
+          <span><i></i><strong>India</strong><small>IN</small></span>
+          <b aria-hidden="true"></b>
+          <span><i></i><strong>Saudi Arabia</strong><small>SA</small></span>
+          <b aria-hidden="true"></b>
+          <span><i></i><strong>United States</strong><small>US</small></span>
+        </div>
+      </div>
+
+      <div class="nova-copy">
+        <span class="nova-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+        <h3>Helped grow Nova from 0 to 15 enterprise customers.</h3>
+        <p>Sole PM on an AI senior-care platform live across India, Saudi Arabia, and the U.S.</p>
+      </div>
+    </div>
+  </div>
+</div>

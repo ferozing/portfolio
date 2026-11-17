@@ -1,0 +1,210 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props { projects: Project[] }
+const { projects } = Astro.props;
+const [oyesun, router, checkin, twin, automation] = projects;
+---
+
+<div class="lab-console" data-project-lab>
+  <div class="lab-console-bar">
+    <div><span class="console-light is-live"></span><strong>FimoLabs · Personal lab</strong></div>
+    <span>Independent projects</span>
+  </div>
+
+  <div class="lab-tabs" role="tablist" aria-label="FimoLabs projects">
+    {projects.map((project, index) => (
+      <button
+        id={`tab-${project.id}`}
+        type="button"
+        role="tab"
+        class:list={[{ 'is-active': index === 0 }]}
+        aria-selected={index === 0 ? 'true' : 'false'}
+        aria-controls={`panel-${project.id}`}
+        tabindex={index === 0 ? '0' : '-1'}
+        data-project-tab={project.id}
+      >
+        <span>{project.number}</span>
+        <strong>{project.name}</strong>
+        <small>{project.status}</small>
+      </button>
+    ))}
+  </div>
+
+  <div class="lab-panels">
+    <article class="project-panel panel-oyesun is-active" id={`panel-${oyesun.id}`} role="tabpanel" aria-labelledby={`tab-${oyesun.id}`} data-project-panel={oyesun.id}>
+      <div class="panel-visual oyesun-scene" aria-label="Illustration of mixed speech flowing into the OyeSun companion">
+        <div class="scene-grid" aria-hidden="true"></div>
+        <span class="speech-fragment fragment-a">my language</span>
+        <span class="speech-fragment fragment-b">my rhythm</span>
+        <span class="speech-fragment fragment-c">everyday mix</span>
+        <div class="voice-orbit orbit-one" aria-hidden="true"></div>
+        <div class="voice-orbit orbit-two" aria-hidden="true"></div>
+        <div class="listening-orb" aria-hidden="true">
+          <span class="sun-face">☼</span>
+          <div class="voice-bars">{Array.from({ length: 9 }).map(() => <i></i>)}</div>
+          <small>listening</small>
+        </div>
+        <figure class="product-evidence">
+          <figcaption><i></i> Working product</figcaption>
+          <img src={oyesun.screenshot?.src} alt={oyesun.screenshot?.alt} />
+        </figure>
+      </div>
+      <div class="panel-notes">
+        <div class="panel-eyebrow"><span>{oyesun.category}</span><span class="status status-live"><i></i>{oyesun.status}</span></div>
+        <h3>{oyesun.name}<span>.</span></h3>
+        <p class="panel-question">“{oyesun.question}”</p>
+        <p>{oyesun.description}</p>
+        <div class="panel-tags"><span>Voice</span><span>Companion</span><span>Live</span></div>
+        <a class="panel-action" href={oyesun.href}>{oyesun.action} <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+
+    <article class="project-panel panel-router" id={`panel-${router.id}`} role="tabpanel" aria-labelledby={`tab-${router.id}`} data-project-panel={router.id} hidden>
+      <div class="panel-visual router-scene" data-eval-demo aria-label="Interactive illustrative evaluation of a fictional complaint route">
+        <div class="eval-topbar">
+          <div class="route-demo-label"><span>Local routing eval</span><small>Illustrative sample</small></div>
+          <span class="eval-runtime"><i aria-hidden="true"></i>Illustrative local trace</span>
+        </div>
+        <div class="eval-workbench">
+          <article class="eval-card eval-case">
+            <div class="eval-card-label"><span>01 / Fictional complaint</span><small>Input</small></div>
+            <blockquote>“Delivered, not received”</blockquote>
+            <span class="eval-chip">Food delivery</span>
+          </article>
+          <i class="eval-connector connector-a" aria-hidden="true"></i>
+          <article class="eval-card eval-model">
+            <div class="eval-card-label"><span>02 / Local model</span><small>Route</small></div>
+            <div class="model-core" aria-hidden="true"><i></i><i></i><i></i></div>
+            <strong>Ollama</strong><small>Choose a support queue</small>
+          </article>
+          <i class="eval-connector connector-b" aria-hidden="true"></i>
+          <article class="eval-card eval-inspector">
+            <div class="eval-card-label"><span>03 / Eval inspector</span><small>Compare</small></div>
+            <dl>
+              <div><dt>Expected</dt><dd>Delivery queue</dd></div>
+              <div><dt>Example route</dt><dd>Delivery queue</dd></div>
+            </dl>
+            <span class="eval-verdict"><i aria-hidden="true"></i>Results pending</span>
+          </article>
+        </div>
+        <div class="eval-learning-rail">
+          <div aria-hidden="true"><span>Route</span><i>→</i><span>Compare</span><i>→</i><span>Log errors</span><i>→</i><span>Measure change</span></div>
+          <button type="button" data-eval-run>Trace this case <span aria-hidden="true">→</span></button>
+          <small data-eval-status aria-live="polite">Ready to trace a fictional case.</small>
+        </div>
+      </div>
+      <div class="panel-notes">
+        <div class="panel-eyebrow"><span>{router.category}</span><span class="status">{router.status}</span></div>
+        <h3>{router.name}</h3>
+        <p class="panel-question">“{router.question}”</p>
+        <p>{router.description}</p>
+        <div class="panel-tags"><span>Local model</span><span>Routing</span><span>Evals</span></div>
+        <span class="panel-action is-muted">Eval workbench in progress</span>
+      </div>
+    </article>
+
+    <article class="project-panel panel-checkin" id={`panel-${checkin.id}`} role="tabpanel" aria-labelledby={`tab-${checkin.id}`} data-project-panel={checkin.id} hidden>
+      <div class="panel-visual checkin-scene" aria-label="Illustrative service blueprint of a daily parent check-in becoming family context">
+        <div class="handoff-topbar"><span>Daily care loop</span><small>Illustrative product flow</small></div>
+        <div class="handoff-blueprint">
+          <article class="handoff-stage stage-parent">
+            <div class="handoff-actor"><span>01 / Parent</span><small>Any phone</small></div>
+            <div class="handoff-ui call-ui">
+              <b aria-hidden="true">☎</b>
+              <div><strong>Daily voice check-in</strong><small>Short, friendly call</small></div>
+              <span class="handoff-wave" aria-hidden="true">{Array.from({ length: 7 }).map(() => <i></i>)}</span>
+            </div>
+          </article>
+          <div class="handoff-connector"><span>call</span><i aria-hidden="true"></i></div>
+          <article class="handoff-stage stage-summary">
+            <div class="handoff-actor"><span>02 / Voice AI</span><small>Summarize</small></div>
+            <div class="handoff-ui summary-ui">
+              <strong>Short family update</strong>
+              <span><i aria-hidden="true"></i>How they’re doing</span>
+              <span><i aria-hidden="true"></i>Context for the next call</span>
+            </div>
+          </article>
+          <div class="handoff-connector"><span>note</span><i aria-hidden="true"></i></div>
+          <article class="handoff-stage stage-family">
+            <div class="handoff-actor"><span>03 / Family</span><small>WhatsApp</small></div>
+            <div class="handoff-ui family-ui">
+              <span>Family update</span>
+              <strong>Context before calling home</strong>
+              <small>Delivered ✓✓</small>
+            </div>
+          </article>
+        </div>
+        <div class="handoff-footer">
+          <div class="handoff-principle"><span>Product intent</span><strong>Support the next human call—not replace it.</strong></div>
+          <figure class="handoff-proof">
+            <img src={checkin.screenshot?.src} alt={checkin.screenshot?.alt} loading="lazy" />
+            <figcaption>Public product page</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="panel-notes">
+        <div class="panel-eyebrow"><span>{checkin.category}</span><span class="status">{checkin.status}</span></div>
+        <h3>{checkin.name}</h3>
+        <p class="panel-question">“{checkin.question}”</p>
+        <p>{checkin.description}</p>
+        <div class="panel-tags"><span>Daily call</span><span>Voice AI</span><span>Family update</span></div>
+        <a class="panel-action" href={checkin.href}>{checkin.action} <span aria-hidden="true">↗</span></a>
+      </div>
+    </article>
+
+    <article class="project-panel panel-twin" id={`panel-${twin.id}`} role="tabpanel" aria-labelledby={`tab-${twin.id}`} data-project-panel={twin.id} hidden>
+      <div class="panel-visual twin-scene" data-twin-visual data-level="2" aria-label="Interactive simulated digital-twin scenario">
+        <div class="simulation-label"><span>Simulated / illustrative</span><small data-scenario-label>Scenario 2</small></div>
+        <svg class="twin-map" viewBox="0 0 620 330" aria-hidden="true">
+          <path class="axis" d="M54 274H570M72 292V40" />
+          <path class="contour contour-one" d="M108 242 C126 95 276 52 448 98 C568 131 548 230 416 258 C272 290 134 282 108 242Z" />
+          <path class="contour contour-two" d="M160 225 C184 128 294 94 412 123 C492 144 484 204 397 229 C300 257 178 260 160 225Z" />
+          <path class="contour contour-three" d="M226 208 C246 157 314 142 380 155 C432 166 421 198 371 211 C310 228 241 229 226 208Z" />
+          <path class="state-trace" d="M76 249 C156 236 181 207 238 216 C293 225 324 161 382 173 C448 187 474 118 560 103" />
+          <circle class="state-point point-one" cx="238" cy="216" r="8" />
+          <circle class="state-point point-two" cx="382" cy="173" r="8" />
+          <circle class="state-point point-three" cx="560" cy="103" r="8" />
+        </svg>
+        <div class="scenario-control">
+          <label for="scenario-range">Scenario intensity <output data-scenario-output>2 / 3</output></label>
+          <input id="scenario-range" type="range" min="1" max="3" value="2" step="1" data-scenario-range />
+          <div aria-hidden="true"><span>Baseline</span><span>Shift</span><span>Stress test</span></div>
+        </div>
+      </div>
+      <div class="panel-notes">
+        <div class="panel-eyebrow"><span>{twin.category}</span><span class="status">{twin.status}</span></div>
+        <h3>{twin.name}</h3>
+        <p class="panel-question">“{twin.question}”</p>
+        <p>{twin.description}</p>
+        <div class="panel-tags"><span>Simulation</span><span>Scenarios</span><span>Concept</span></div>
+        <span class="panel-action is-muted">Using simulated data only</span>
+      </div>
+    </article>
+
+    <article class="project-panel panel-automation" id={`panel-${automation.id}`} role="tabpanel" aria-labelledby={`tab-${automation.id}`} data-project-panel={automation.id} hidden>
+      <div class="panel-visual automation-scene" data-automation-demo aria-label="Illustrative automation assistant walkthrough">
+        <div class="automation-label"><span>Concept walkthrough</span><small>Illustrative task</small></div>
+        <div class="demo-surface" aria-hidden="true">
+          <aside><i></i><i></i><i></i><i></i></aside>
+          <div class="demo-main"><span></span><b></b><b></b><b></b><div class="target-field">Order reference</div><button tabindex="-1">Confirm</button></div>
+          <div class="demo-cursor">↖</div>
+          <svg viewBox="0 0 520 260"><path d="M370 70 C318 78 301 120 330 145 C360 171 420 183 430 224" /></svg>
+        </div>
+        <div class="bot-console">
+          <div><span class="bot-spark">✦</span><strong>Automation Bot</strong><small data-automation-status aria-live="polite">Ready to demonstrate.</small></div>
+          <ol aria-hidden="true"><li>Open</li><li>Fill</li><li>Confirm</li></ol>
+          <button type="button" data-automation-run>Run illustrative task <span>→</span></button>
+        </div>
+      </div>
+      <div class="panel-notes">
+        <div class="panel-eyebrow"><span>{automation.category}</span><span class="status">{automation.status}</span></div>
+        <h3>{automation.name}</h3>
+        <p class="panel-question">“{automation.question}”</p>
+        <p>{automation.description}</p>
+        <div class="panel-tags"><span>Plan</span><span>Act</span><span>Confirm</span></div>
+        <span class="panel-action is-muted">Public walkthrough coming later</span>
+      </div>
+    </article>
+  </div>
+</div>

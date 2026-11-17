@@ -1,0 +1,264 @@
+---
+import '../styles/global.css';
+import { projects } from '../data/projects';
+import HeroSystem from '../components/HeroSystem.astro';
+import ProductLab from '../components/ProductLab.astro';
+import BuildLoop from '../components/BuildLoop.astro';
+import ExperienceProof from '../components/ExperienceProof.astro';
+import PathDiagram from '../components/PathDiagram.astro';
+
+const linkedin = 'https://www.linkedin.com/in/feroz-md/';
+const portrait = '/media/feroz-portrait-v1.png';
+const description = 'Feroz Mohammed is an Associate Product Manager at Amura Health with AI product experience, measurable growth at Careflick, and independent work at FimoLabs.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PM Feroz — AI Product Manager & Builder</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://pm.fimolabs.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PM Feroz — AI Product Manager & Builder" />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://pm.fimolabs.com/" />
+    <meta property="og:image" content="https://pm.fimolabs.com/social-preview.png" />
+    <meta property="og:image:alt" content="PM Feroz, AI Product Manager. A visual portfolio of products, systems, and evidence." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PM Feroz — AI Product Manager & Builder" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://pm.fimolabs.com/social-preview.png" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the work</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <header class="site-header shell">
+      <a class="logo" href="#top" aria-label="PM Feroz, AI Product Manager, home">
+        <span class="logo-copy"><strong>PM Feroz</strong><small>AI Product Manager</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#experience">Experience</a>
+        <a href="#work">Projects</a>
+        <a href="#method">Method</a>
+        <a href="#about">About</a>
+      </nav>
+      <a class="header-link" href={linkedin}>LinkedIn <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="main">
+      <section class="hero shell" id="top">
+        <div class="hero-copy" data-reveal>
+          <div class="hero-kicker"><span class="live-dot" aria-hidden="true"></span><span>Feroz Mohammed</span><i>/</i><span>Product Manager & Builder</span></div>
+          <h1>I turn product questions into <em>working products.</em></h1>
+          <p class="hero-role">AI Product Manager · I design, prototype, and ship.</p>
+          <p class="hero-intro">At Amura Health, I’m an Associate Product Manager. Earlier at Careflick, I helped grow Nova from 0 to 15 enterprise customers. FimoLabs is my independent product lab.</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#experience">View product impact <span aria-hidden="true">↓</span></a>
+            <a class="quiet-action" href="#work">Explore FimoLabs <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" data-reveal>
+          <HeroSystem portrait={portrait} />
+        </div>
+      </section>
+
+      <section class="experience-section shell" id="experience">
+        <div class="section-intro" data-reveal>
+          <div><p class="section-number">01 / Employment</p><h2>Product work,<br /><em>with evidence.</em></h2></div>
+          <p>Associate Product Manager at Amura Health. Previously, I helped grow Nova from 0 to 15 enterprise customers.</p>
+        </div>
+        <ExperienceProof />
+        <div class="experience-rail" data-reveal aria-label="Earlier employment">
+          <article><span>03 / Earlier</span><div><strong>Tata Consultancy Services</strong><small>Business Analyst</small></div><i aria-hidden="true">TCS</i></article>
+        </div>
+      </section>
+
+      <section class="work-section shell" id="work">
+        <div class="section-intro" data-reveal>
+          <div><p class="section-number">02 / Independent product lab</p><h2>Built independently.<br /><em>Inside FimoLabs.</em></h2></div>
+          <p>Five products and prototypes I’m building independently—some live, others taking shape.</p>
+        </div>
+        <ProductLab projects={projects} />
+      </section>
+
+      <section class="method-section" id="method">
+        <div class="shell">
+          <div class="method-heading" data-reveal>
+            <div><p class="section-number">03 / How I build</p><h2>The work is a <em>loop</em>, not a handoff.</h2></div>
+            <p>Problem, experience, code, evidence. I stay close to all four.</p>
+          </div>
+          <BuildLoop />
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="shell">
+          <div class="about-heading" data-reveal>
+            <p class="section-number">04 / About</p>
+            <h2>Curiosity changed the <em>shape</em> of my work.</h2>
+            <img class="about-portrait" data-portrait-slot src={portrait} alt="Portrait of Feroz Mohammed" width="1254" height="1254" loading="lazy" decoding="async" />
+          </div>
+          <PathDiagram />
+          <div class="about-copy" data-reveal>
+            <p>Mechanical engineering led me to code, then product.</p>
+            <p>I enjoy taking an idea far enough that someone can try it—and tell me where it falls short.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section shell" data-reveal>
+        <div class="contact-copy"><p>For founders and product teams</p><h2>I work best where product judgment reaches <em>the build.</em></h2><a href={linkedin}>View my LinkedIn <span aria-hidden="true">↗</span></a></div>
+        <div class="contact-signal" aria-hidden="true">
+          <svg viewBox="0 0 440 290"><path d="M22 54 C122 55 96 145 197 145 C282 145 276 232 413 232" /><path d="M41 240 C113 240 113 180 197 180 C300 180 302 84 410 84" /></svg>
+          <span class="contact-node node-a"></span><span class="contact-node node-b"></span><span class="contact-node node-c"></span>
+          <i>signal → build</i>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <a class="logo" href="#top" aria-label="PM Feroz, AI Product Manager, home">
+        <span class="logo-copy"><strong>PM Feroz</strong><small>AI Product Manager</small></span>
+      </a>
+      <p>FimoLabs is my personal lab.</p>
+      <p>© {new Date().getFullYear()} Feroz Mohammed</p>
+    </footer>
+
+    <script>
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      if (reducedMotion.matches) revealItems.forEach((item) => item.classList.add('is-visible'));
+      else {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach((item) => observer.observe(item));
+      }
+
+      const progress = document.querySelector<HTMLElement>('.scroll-progress span');
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        if (progress) progress.style.width = `${scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0}%`;
+      };
+      updateProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+
+      const system = document.querySelector<HTMLElement>('[data-hero-system]');
+      const systemButtons = system ? [...system.querySelectorAll<HTMLButtonElement>('[data-system-stage]')] : [];
+      const systemIndexOutput = system?.querySelector<HTMLElement>('[data-system-output-index]');
+      const systemNoteOutput = system?.querySelector<HTMLElement>('[data-system-output-note]');
+      const setSystemStage = (button: HTMLButtonElement) => {
+        systemButtons.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        if (systemIndexOutput) systemIndexOutput.textContent = `${button.dataset.stageIndex} / ${button.dataset.stageMeta}`;
+        if (systemNoteOutput) systemNoteOutput.textContent = button.dataset.stageNote ?? '';
+      };
+      systemButtons.forEach((button) => {
+        button.addEventListener('click', () => setSystemStage(button));
+        button.addEventListener('focus', () => setSystemStage(button));
+        button.addEventListener('pointerenter', () => setSystemStage(button));
+      });
+
+      const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-project-tab]')];
+      const panels = [...document.querySelectorAll<HTMLElement>('[data-project-panel]')];
+      const activateProject = (tab: HTMLButtonElement, focus = false) => {
+        tabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-selected', String(active));
+          item.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach((panel) => {
+          const active = panel.dataset.projectPanel === tab.dataset.projectTab;
+          panel.hidden = !active;
+          panel.classList.toggle('is-active', active);
+        });
+        if (focus) tab.focus();
+      };
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateProject(tab));
+        tab.addEventListener('keydown', (event) => {
+          let next = index;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+          else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          activateProject(tabs[next], true);
+        });
+      });
+
+      document.querySelectorAll<HTMLElement>('[data-eval-demo]').forEach((demo) => {
+        const run = demo.querySelector<HTMLButtonElement>('[data-eval-run]');
+        const status = demo.querySelector<HTMLElement>('[data-eval-status]');
+        run?.addEventListener('click', () => {
+          demo.classList.remove('is-routing', 'is-complete');
+          void demo.offsetWidth;
+          if (reducedMotion.matches) {
+            demo.classList.add('is-complete');
+            if (status) status.textContent = 'Illustrative trace complete. Measured results are still pending.';
+            return;
+          }
+          run.disabled = true;
+          demo.classList.add('is-routing');
+          if (status) status.textContent = 'Tracing complaint → model → queue → eval…';
+          window.setTimeout(() => {
+            demo.classList.remove('is-routing');
+            demo.classList.add('is-complete');
+            run.disabled = false;
+            if (status) status.textContent = 'Illustrative trace complete. Measured results are still pending.';
+          }, 1700);
+        });
+      });
+
+      const scenarioRange = document.querySelector<HTMLInputElement>('[data-scenario-range]');
+      const twinVisual = document.querySelector<HTMLElement>('[data-twin-visual]');
+      const scenarioOutput = document.querySelector<HTMLOutputElement>('[data-scenario-output]');
+      const scenarioLabel = document.querySelector<HTMLElement>('[data-scenario-label]');
+      scenarioRange?.addEventListener('input', () => {
+        const value = scenarioRange.value;
+        if (twinVisual) twinVisual.dataset.level = value;
+        if (scenarioOutput) scenarioOutput.value = `${value} / 3`;
+        if (scenarioLabel) scenarioLabel.textContent = `Scenario ${value}`;
+      });
+
+      const automationDemo = document.querySelector<HTMLElement>('[data-automation-demo]');
+      const automationButton = automationDemo?.querySelector<HTMLButtonElement>('[data-automation-run]');
+      const automationStatus = automationDemo?.querySelector<HTMLElement>('[data-automation-status]');
+      automationButton?.addEventListener('click', () => {
+        if (!automationDemo || !automationStatus) return;
+        automationDemo.classList.remove('is-running', 'is-complete');
+        void automationDemo.offsetWidth;
+        if (reducedMotion.matches) {
+          automationDemo.classList.add('is-complete');
+          automationStatus.textContent = 'Illustrative flow complete.';
+          return;
+        }
+        automationButton.disabled = true;
+        automationDemo.classList.add('is-running');
+        automationStatus.textContent = 'Opening the task…';
+        window.setTimeout(() => { automationStatus.textContent = 'Filling the example field…'; }, 750);
+        window.setTimeout(() => { automationStatus.textContent = 'Confirming the illustrative task…'; }, 1500);
+        window.setTimeout(() => {
+          automationDemo.classList.remove('is-running');
+          automationDemo.classList.add('is-complete');
+          automationStatus.textContent = 'Illustrative flow complete.';
+          automationButton.disabled = false;
+        }, 2250);
+      });
+    </script>
+  </body>
+</html>

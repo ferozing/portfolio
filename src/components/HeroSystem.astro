@@ -1,0 +1,83 @@
+---
+interface Props {
+  portrait: string;
+}
+
+const { portrait } = Astro.props;
+
+const stages = [
+  { id: 'problem', index: '01', label: 'Find signal', meta: 'Problem', note: 'Start with a question worth staying with.' },
+  { id: 'experience', index: '02', label: 'Shape it', meta: 'Experience', note: 'Turn the idea into something people can react to.' },
+  { id: 'build', index: '03', label: 'Make it real', meta: 'Build', note: 'Write enough code for the trade-offs to become visible.' },
+  { id: 'learn', index: '04', label: 'Read reality', meta: 'Learn', note: 'Watch what happens, measure what matters, and loop back.' }
+];
+---
+
+<div class="hero-system" data-hero-system aria-label="How I take a product from problem to learning">
+  <svg class="system-circuit" viewBox="0 0 520 420" aria-hidden="true">
+    <defs>
+      <linearGradient id="loop-gradient" x1="0" x2="1">
+        <stop offset="0" stop-color="#2348e5" stop-opacity=".28" />
+        <stop offset=".5" stop-color="#2348e5" />
+        <stop offset="1" stop-color="#2348e5" stop-opacity=".28" />
+      </linearGradient>
+    </defs>
+    <path class="circuit-grid" d="M26 70H494M26 210H494M26 350H494M90 28V392M260 28V392M430 28V392" />
+    <path class="circuit-loop" d="M112 96 C196 35 330 35 408 98 C477 154 475 266 405 324 C327 389 193 382 110 322 C36 268 38 151 112 96Z" />
+    <path class="circuit-loop circuit-loop-active" d="M112 96 C196 35 330 35 408 98 C477 154 475 266 405 324 C327 389 193 382 110 322 C36 268 38 151 112 96Z" />
+    <circle class="loop-signal" r="6">
+      <animateMotion dur="8s" repeatCount="indefinite" path="M112 96 C196 35 330 35 408 98 C477 154 475 266 405 324 C327 389 193 382 110 322 C36 268 38 151 112 96Z" />
+    </circle>
+  </svg>
+
+  <figure class="system-core" aria-label="Feroz at the center of the product loop">
+    <span class="core-halo" aria-hidden="true"></span>
+    <img class="system-core-portrait" src={portrait} alt="" width="1254" height="1254" decoding="async" />
+    <figcaption><strong>Feroz</strong><span>AI PM · Builder</span></figcaption>
+  </figure>
+
+  {stages.map((stage, index) => (
+    <button
+      class:list={[`system-node node-${stage.id}`, { 'is-active': index === 0 }]}
+      type="button"
+      data-system-stage={stage.id}
+      data-stage-index={stage.index}
+      data-stage-meta={stage.meta}
+      data-stage-note={stage.note}
+      aria-pressed={index === 0 ? 'true' : 'false'}
+    >
+      <span class={`node-glyph glyph-${stage.id}`} aria-hidden="true">
+        {stage.id === 'problem' && <><i></i><i></i><i></i></>}
+        {stage.id === 'experience' && <><i></i><i></i><b></b></>}
+        {stage.id === 'build' && <><i>&lt;</i><b>/</b><i>&gt;</i></>}
+        {stage.id === 'learn' && <><i></i><i></i><i></i><i></i></>}
+      </span>
+      <span><small>{stage.meta}</small><strong>{stage.label}</strong></span>
+    </button>
+  ))}
+
+  <div class="system-readout" aria-live="polite">
+    <span data-system-output-index>01 / Problem</span>
+    <p data-system-output-note>Start with a question worth staying with.</p>
+  </div>
+</div>
+
+<div class="proof-instruments" aria-label="Selected evidence from my product work">
+  <article class="instrument growth-instrument">
+    <div class="instrument-label"><span>Nova</span><small>Enterprise customers</small></div>
+    <div class="mini-trace" aria-hidden="true">
+      <svg viewBox="0 0 220 58"><path d="M4 50 C42 48 52 40 82 41 C118 42 121 28 151 27 C181 26 183 10 216 7" /></svg>
+      <span class="trace-start">0</span><span class="trace-end">15</span>
+    </div>
+  </article>
+  <article class="instrument market-instrument">
+    <div class="instrument-label"><span>Live in</span><small>Three markets</small></div>
+    <div class="market-nodes" aria-label="India, Saudi Arabia, and the United States">
+      <span>IN</span><i aria-hidden="true"></i><span>SA</span><i aria-hidden="true"></i><span>US</span>
+    </div>
+  </article>
+  <article class="instrument lab-instrument">
+    <div class="instrument-label"><span>FimoLabs</span><small>Independent lab</small></div>
+    <div class="lab-signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b>5 projects</b></div>
+  </article>
+</div>

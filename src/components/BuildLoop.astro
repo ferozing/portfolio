@@ -1,0 +1,38 @@
+---
+const steps = [
+  { id: 'find', number: '01', title: 'Find', note: 'A problem I care enough about to keep questioning.' },
+  { id: 'design', number: '02', title: 'Design', note: 'An experience tangible enough to react to.' },
+  { id: 'build', number: '03', title: 'Build', note: 'Working code that makes the trade-offs real.' },
+  { id: 'test', number: '04', title: 'Test', note: 'Evidence that changes what I do next.' }
+];
+---
+
+<div class="build-loop" data-reveal aria-label="My product-building loop">
+  <svg class="build-loop-track" viewBox="0 0 1000 410" aria-hidden="true">
+    <path class="track-base" d="M150 92 C350 20 653 20 850 94 C958 134 958 273 850 317 C650 396 350 390 150 317 C37 276 39 135 150 92Z" />
+    <path class="track-progress" d="M150 92 C350 20 653 20 850 94 C958 134 958 273 850 317 C650 396 350 390 150 317 C37 276 39 135 150 92Z" />
+    <path class="track-return" d="M806 324 C701 368 307 371 195 324" />
+  </svg>
+
+  <div class="loop-core">
+    <div><small>Output</small><strong>Working product</strong><span>then learn again</span></div>
+  </div>
+
+  <ol class="loop-steps">
+    {steps.map((step) => (
+      <li class={`loop-step step-${step.id}`} tabindex="0">
+        <div class={`loop-icon icon-${step.id}`} aria-hidden="true">
+          {step.id === 'find' && <><span></span><i></i><b>?</b></>}
+          {step.id === 'design' && <><span></span><i></i><i></i></>}
+          {step.id === 'build' && <><b>&lt;/&gt;</b><i></i></>}
+          {step.id === 'test' && <><i></i><i></i><i></i><span></span></>}
+        </div>
+        <span>{step.number}</span>
+        <h3>{step.title}</h3>
+        <p>{step.note}</p>
+      </li>
+    ))}
+  </ol>
+
+  <div class="loop-legend" aria-hidden="true"><span></span>Signal travels both ways</div>
+</div>
